@@ -258,6 +258,91 @@ kubeadm token create --print-join-command
 ```bash
 sudo kubeadm join LOAD_BALANCER_IP:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash>
 ```
+
+# Verify:
+
+```bash
+kubectl get nodes -o wide
+kubectl get pods -n kube-system
+
+```
+
+✅ Now you should see **3 masters + 3 workers** in the cluster.
+
+---
+
+
+
+## 🟢 8. Install Helm
+
+On Master-1:
+
+```bash
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+helm version
+```
+
+---
+
+## 🟢 9. Install Ingress Controller
+
+```bash
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+helm install nginx ingress-nginx/ingress-nginx --namespace ingress-nginx --create-namespace
+kubectl get pods -n ingress-nginx
+```
+
+---
+
+## 🟢 10. Add Mojaloop Helm Repo
+
+```bash
+helm repo add mojaloop https://mojaloop.io/helm/repo/
+helm repo update
+```
+
+---
+
+## 🟢 11. Deploy Backend Dependencies
+
+```bash
+helm install backend mojaloop/example-mojaloop-backend --namespace demo --create-namespace
+kubectl get pods -n demo
+```
+
+---
+
+## 🟢 12. Deploy Mojaloop Core
+
+```bash
+helm install moja mojaloop/mojaloop --namespace demo --create-namespace
+```
+
+Check status:
+
+```bash
+helm -n demo list
+kubectl get pods -n demo
+```
+
+You should see multiple Mojaloop components running:
+
+* **Account Lookup Service (ALS)**
+* **Central Ledger**
+* **Quoting Service**
+* **Transaction Request Service**
+* **Testing Toolkit**
+* **Simulators**
+
+---
+
+
+
+
+
 ## Output
 
 ```bash
