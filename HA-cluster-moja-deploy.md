@@ -10,7 +10,7 @@ It is designed to replicate **real-world production environments**, following in
 
 ## 📖 About this Documentation
 
-This documentation has been authored by **\[Your Name / Nahidul Islam]**, based on real-world, production-grade deployment experience as a **DevOps & Cloud Engineer**.
+This documentation has been authored by **Nahidul Islam**, based on real-world, production-grade deployment experience as a **DevOps & Cloud Engineer**.
 It provides both **conceptual clarity** and **hands-on practical steps** so that engineers can set up, validate, and operate a production-ready Kubernetes cluster.
 
 ---
