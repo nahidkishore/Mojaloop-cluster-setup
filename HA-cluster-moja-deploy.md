@@ -319,6 +319,41 @@ ip-172-31-22-61    Ready    <none>          27m   v1.34.0
 ip-172-31-26-102   Ready    control-plane   28m   v1.34.0
 ip-172-31-26-94    Ready    <none>          26m   v1.34.0
 ip-172-31-31-24    Ready    control-plane   27m   v1.34.0
+
+#---
+
+ubuntu@ip-172-31-18-245:~$ kubectl get pods -n kube-system
+NAME                                       READY   STATUS    RESTARTS   AGE
+calico-kube-controllers-65f6dbf847-tr2nc   1/1     Running   0          62m
+calico-node-62hq5                          1/1     Running   0          61m
+calico-node-g5hf5                          1/1     Running   0          59m
+calico-node-lnwp6                          1/1     Running   0          60m
+calico-node-sw5rn                          1/1     Running   0          59m
+calico-node-vfgcd                          1/1     Running   0          62m
+calico-node-wt2th                          1/1     Running   0          60m
+coredns-66bc5c9577-4xsbc                   1/1     Running   0          65m
+coredns-66bc5c9577-k2b48                   1/1     Running   0          65m
+etcd-ip-172-31-18-245                      1/1     Running   0          65m
+etcd-ip-172-31-26-102                      1/1     Running   0          61m
+etcd-ip-172-31-31-24                       1/1     Running   0          60m
+kube-apiserver-ip-172-31-18-245            1/1     Running   0          65m
+kube-apiserver-ip-172-31-26-102            1/1     Running   0          61m
+kube-apiserver-ip-172-31-31-24             1/1     Running   0          60m
+kube-controller-manager-ip-172-31-18-245   1/1     Running   0          65m
+kube-controller-manager-ip-172-31-26-102   1/1     Running   0          61m
+kube-controller-manager-ip-172-31-31-24    1/1     Running   0          60m
+kube-proxy-8xjlc                           1/1     Running   0          60m
+kube-proxy-b6nc6                           1/1     Running   0          59m
+kube-proxy-s9n5p                           1/1     Running   0          60m
+kube-proxy-w82xj                           1/1     Running   0          61m
+kube-proxy-wvw4z                           1/1     Running   0          65m
+kube-proxy-xskcl                           1/1     Running   0          59m
+kube-scheduler-ip-172-31-18-245            1/1     Running   0          65m
+kube-scheduler-ip-172-31-26-102            1/1     Running   0          61m
+kube-scheduler-ip-172-31-31-24             1/1     Running   0          60m
+
+#---
+
 ubuntu@ip-172-31-26-102:~$ kubectl get pods -A
 NAMESPACE       NAME                                                              READY   STATUS      RESTARTS      AGE
 demo            auth-svc-redis-master-0                                           1/1     Running     0             23m
